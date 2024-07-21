@@ -12,7 +12,7 @@ import io
 load_dotenv()  # .env 파일에서 환경 변수 로드
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # MongoDB 연결 설정
 mongo_client = MongoClient(os.getenv("MONGODB_URI"), server_api=ServerApi('1'))
